@@ -1,0 +1,22 @@
+name: Complex
+
+on: push
+
+jobs:
+  ubuntu: # this job is called ubuntu
+    runs-on: ubuntu-latest
+    steps:
+    - run: date
+  windows: # this job is called windows
+    runs-on: windows-latest
+    steps:
+    - run: date
+  macos: # this job is called macos
+    runs-on: macos-latest
+    steps:
+    - run: date
+  depends: # this job is called depends
+    needs: [ubuntu, windows, macos] # this is a dependency command that depends on the first three jobs ubuntu, windows, macos
+    runs-on: macos-latest
+    steps:
+    - run: date
